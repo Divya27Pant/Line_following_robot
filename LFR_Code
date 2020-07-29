@@ -1,1 +1,54 @@
+int ir1=11;  // motor a and b right// 
+int ir2=12;  //motor x and y left//
 
+int mtra=8;
+int mtrb=9;
+
+int mtrx=6;
+int mtry=7;
+
+void setup() {
+ pinMode(ir1,INPUT);
+ pinMode(ir1,INPUT);
+ pinMode(mtra,OUTPUT);
+ pinMode(mtrb,OUTPUT);
+ pinMode(mtrx,OUTPUT);
+ pinMode(mtry,OUTPUT); 
+ pinMode(5 , OUTPUT);
+
+}
+
+void loop() {
+  digitalWrite(5,HIGH);
+  if(!(digitalRead(ir1) )&&!( digitalRead(ir2)))   //stop //
+  {
+    digitalWrite(mtra,HIGH);
+    digitalWrite(mtra,HIGH);
+    digitalWrite(mtrx,HIGH);
+    digitalWrite(mtry,HIGH);
+  }
+
+  else if(digitalRead(ir1) && !(digitalRead(ir2)) )   // move left//
+   {
+    digitalWrite(mtra,LOW);
+    digitalWrite(mtrb,HIGH);
+    digitalWrite(mtrx,HIGH);
+    digitalWrite(mtry,HIGH);
+   }
+
+   else if(!(digitalRead(ir1)) && digitalRead(ir2) )   // move right//
+   {
+    digitalWrite(mtra,HIGH);
+    digitalWrite(mtrb,HIGH);
+    digitalWrite(mtrx,HIGH);
+    digitalWrite(mtry,LOW);
+   }
+
+   else if(digitalRead(ir1) && digitalRead(ir2) )   //move forward //
+   {
+    digitalWrite(mtra,HIGH);
+    digitalWrite(mtrb,LOW);
+    digitalWrite(mtrx,LOW);
+    digitalWrite(mtry,HIGH);
+   }
+}
